@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.27.xsd">
+
+    <!-- Roles -->
+    <changeSet id="002-1" author="berke">
+        <insert tableName="roles">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="admin"/>
+        </insert>
+
+        <insert tableName="roles">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="user"/>
+        </insert>
+    </changeSet>
+
+    <!-- Admin User -->
+    <changeSet id="002-2" author="berke">
+        <insert tableName="users">
+            <column name="email" value="abc@abc.com"/>
+            <column name="username" value="admin"/>
+            <column name="password" value="admin"/>
+            <column name="role_id" valueNumeric="1"/>
+        </insert>
+    </changeSet>
+
+    <!-- Categories -->
+    <changeSet id="002-3" author="berke">
+        <insert tableName="categories">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="Elektronik"/>
+        </insert>
+
+        <insert tableName="categories">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="Kitap"/>
+        </insert>
+    </changeSet>
+
+    <!-- Products -->
+    <changeSet id="002-4" author="berke">
+        <insert tableName="products">
+            <column name="name" value="Kablosuz Kulaklık"/>
+            <column name="price" valueNumeric="1999.90"/>
+            <column name="explanation" value="ANC destekli bluetooth kulaklık"/>
+            <column name="category_id" valueNumeric="1"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="name" value="Spring Boot Rehberi"/>
+            <column name="price" valueNumeric="349.90"/>
+            <column name="explanation" value="Sıfırdan sektöre Spring Boot"/>
+            <column name="category_id" valueNumeric="2"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
